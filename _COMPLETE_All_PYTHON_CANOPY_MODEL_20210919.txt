@@ -1,0 +1,638 @@
+
+import arcpy
+
+
+# Local variables:
+TREES = "Z:\GIS\Models\Tree_Canopies\TreeModelTest.shp"
+
+
+##Add Directional NW Field (1)
+arcpy.AddField_management(TREES, "DIR_NW", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate Directional NW Field (1)
+arcpy.CalculateField_management(TREES, "DIR_NW", "315", "VB", "")
+
+##Add NW Length Field (2)
+arcpy.AddField_management(TREES, "DL_NW", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate NW Length Field (2)
+arcpy.CalculateField_management(TREES, "DL_NW", "(([CPY_NW_F]*12)+ [CPY_NW_I])/12", "VB", "")
+
+##Add Directional N Field (3)
+arcpy.AddField_management(TREES, "DIR_N", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate Directional N Field (3)
+arcpy.CalculateField_management(TREES, "DIR_N", "0", "VB", "")
+
+##Add N Length Field (4)
+arcpy.AddField_management(TREES, "DL_N", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate N Length Field (4)
+arcpy.CalculateField_management(TREES, "DL_N", "(([CPY_N_F]*12)+ [CPY_N_I])/12", "VB", "")
+
+##Add Directional NE Field (5)
+arcpy.AddField_management(TREES, "DIR_NE", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate Directional NE Field (5)
+arcpy.CalculateField_management(TREES, "DIR_NE", "45", "VB", "")
+
+##Add NE Length Field (6)
+arcpy.AddField_management(TREES, "DL_NE", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate NE Length Field (6)
+arcpy.CalculateField_management(TREES, "DL_NE", "(([CPY_NE_F]*12)+ [CPY_NE_I])/12", "VB", "")
+
+##Add Directional E Field (7)
+arcpy.AddField_management(TREES, "DIR_E", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate Directional E Field (7)
+arcpy.CalculateField_management(TREES, "DIR_E", "90", "VB", "")
+
+##Add E Length Field (8)
+arcpy.AddField_management(TREES, "DL_E", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate E Length Field (8)
+arcpy.CalculateField_management(TREES, "DL_E", "(([CPY_E_F]*12)+ [CPY_E_I])/12", "VB", "")
+
+##Add Directional SE Field (9)
+arcpy.AddField_management(TREES, "DIR_SE", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate Directional SE Field (9)
+arcpy.CalculateField_management(TREES, "DIR_SE", "135", "VB", "")
+
+##Add SE Length Field (10)
+arcpy.AddField_management(TREES, "DL_SE", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate SE Length Field (10)
+arcpy.CalculateField_management(TREES, "DL_SE", "(([CPY_SE_F]*12)+ [CPY_SE_I])/12", "VB", "")
+
+##Add Directional S Field (11)
+arcpy.AddField_management(TREES, "DIR_S", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate Directional S Field (11)
+arcpy.CalculateField_management(TREES, "DIR_S", "180", "VB", "")
+
+##Add S Length Field (12)
+arcpy.AddField_management(TREES, "DL_S", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate S Length Field (12)
+arcpy.CalculateField_management(TREES, "DL_S", "(([CPY_S_F]*12)+ [CPY_S_I])/12", "VB", "")
+
+##Add Directional SW Field (13)
+arcpy.AddField_management(TREES, "DIR_SW", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate Directional SW Field (13)
+arcpy.CalculateField_management(TREES, "DIR_SW", "225", "VB", "")
+
+##Add SW Length Field (14)
+arcpy.AddField_management(TREES, "DL_SW", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate SW Length Field (14)
+arcpy.CalculateField_management(TREES, "DL_SW", "(([CPY_SW_F]*12)+ [CPY_SW_I])/12", "VB", "")
+
+##Add Directional W Field (15)
+arcpy.AddField_management(TREES, "DIR_W", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate Directional W Field (15)
+arcpy.CalculateField_management(TREES, "DIR_W", "270", "VB", "")
+
+##Add W Length Field (16)
+arcpy.AddField_management(TREES, "DL_W", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate W Length Field (16)
+arcpy.CalculateField_management(TREES, "DL_W", "(([CPY_W_F]*12)+ [CPY_W_I])/12", "VB", "")
+
+##
+
+##Add NNE Directional Field (17)
+arcpy.AddField_management(TREES, "DIR_NNE", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate NNE Directional Field (17)
+arcpy.CalculateField_management(TREES, "DIR_NNE", "22.5", "VB", "")
+
+##Add NNE Length Field (18)
+arcpy.AddField_management(TREES, "DL_NNE", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate NNE Length Field (18)
+arcpy.CalculateField_management(TREES, "DL_NNE", "([DL_N] + [DL_NE])/2", "VB", "")
+
+##
+
+##Add ENE Directional Field (19)
+arcpy.AddField_management(TREES, "DIR_ENE", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate ENE Directional Field (19)
+arcpy.CalculateField_management(TREES, "DIR_ENE", "67.5", "VB", "")
+
+##Add ENE Length Field (20)
+arcpy.AddField_management(TREES, "DL_ENE", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate ENE Length Field (20)
+arcpy.CalculateField_management(TREES, "DL_ENE", "([DL_E] + [DL_NE])/2", "VB", "")
+
+##
+
+##Add ESE Directional Field (21)
+arcpy.AddField_management(TREES, "DIR_ESE", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate ESE Directional Field (21)
+arcpy.CalculateField_management(TREES, "DIR_ESE", "110.5", "VB", "")
+
+##Add ESE Length Field (22)
+arcpy.AddField_management(TREES, "DL_ESE", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate ESE Length Field (22)
+arcpy.CalculateField_management(TREES, "DL_ESE", "([DL_E] + [DL_SE])/2", "VB", "")
+
+##
+
+##Add SSE Directional Field (23)
+arcpy.AddField_management(TREES, "DIR_SSE", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate SSE Directional Field (23)
+arcpy.CalculateField_management(TREES, "DIR_SSE", "157.5", "VB", "")
+
+##Add SSE Length Field (24)
+arcpy.AddField_management(TREES, "DL_SSE", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate SSE Length Field (24)
+arcpy.CalculateField_management(TREES, "DL_SSE", "([DL_S] + [DL_SE])/2", "VB", "")
+
+
+##
+
+##
+
+##Add NNW Directional Field (25)
+arcpy.AddField_management(TREES, "DIR_NNW", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate NNW Directional Field (25)
+arcpy.CalculateField_management(TREES, "DIR_NNW", "337.5", "VB", "")
+
+##Add NNW Length Field (26)
+arcpy.AddField_management(TREES, "DL_NNW", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate NNW Length Field (26)
+arcpy.CalculateField_management(TREES, "DL_NNW", "([DL_N] + [DL_NW])/2", "VB", "")
+
+##
+
+##Add WNW Directional Field (27)
+arcpy.AddField_management(TREES, "DIR_WNW", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate WNW Directional Field (27)
+arcpy.CalculateField_management(TREES, "DIR_WNW", "292.5", "VB", "")
+
+##Add WNW Length Field (28)
+arcpy.AddField_management(TREES, "DL_WNW", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate WNW Length Field (28)
+arcpy.CalculateField_management(TREES, "DL_WNW", "([DL_W] + [DL_NW])/2", "VB", "")
+
+##
+
+##Add WSW Directional Field (29)
+arcpy.AddField_management(TREES, "DIR_WSW", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate WSW Directional Field (29)
+arcpy.CalculateField_management(TREES, "DIR_WSW", "247.5", "VB", "")
+
+##Add WSW Length Field (30)
+arcpy.AddField_management(TREES, "DL_WSW", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate WSW Length Field (30)
+arcpy.CalculateField_management(TREES, "DL_WSW", "([DL_W] + [DL_SW])/2", "VB", "")
+
+##
+
+##Add SSW Directional Field (31)
+arcpy.AddField_management(TREES, "DIR_SSW", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate SSW Directional Field (31)
+arcpy.CalculateField_management(TREES, "DIR_SSW", "202.5", "VB", "")
+
+##Add SSW Length Field (32)
+arcpy.AddField_management(TREES, "DL_SSW", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate SSW Length Field (32)
+arcpy.CalculateField_management(TREES, "DL_SSW", "([DL_S] + [DL_SW])/2", "VB", "")
+
+#####
+##SUB_MEASUREMENTS
+###
+
+##NNE
+
+##Add NNE_1 Directional Field (33)
+arcpy.AddField_management(TREES, "DIR_NNE_1", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate NNE_1 Directional Field (33)
+arcpy.CalculateField_management(TREES, "DIR_NNE_1", "11.25", "VB", "")
+
+##Add NNE_1 Length Field (34)
+arcpy.AddField_management(TREES, "DL_NNE_1", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate NNE_1 Length Field (34)
+arcpy.CalculateField_management(TREES, "DL_NNE_1", "([DL_N] + [DL_NNE])/2", "VB", "")
+
+##Add NNE_2 Directional Field (35)
+arcpy.AddField_management(TREES, "DIR_NNE_2", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate NNE_2 Directional Field (35)
+arcpy.CalculateField_management(TREES, "DIR_NNE_2", "33.75", "VB", "")
+
+##Add NNE_2 Length Field (36)
+arcpy.AddField_management(TREES, "DL_NNE_2", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate NNE_2 Length Field (36)
+arcpy.CalculateField_management(TREES, "DL_NNE_2", "([DL_NE] + [DL_NNE])/2", "VB", "")
+
+##ENE
+
+##Add ENE_1 Directional Field (37)
+arcpy.AddField_management(TREES, "DIR_ENE_1", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate ENE_1 Directional Field (37)
+arcpy.CalculateField_management(TREES, "DIR_ENE_1", "56.25", "VB", "")
+
+##Add ENE_1 Length Field (38)
+arcpy.AddField_management(TREES, "DL_ENE_1", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate ENE_1 Length Field (38)
+arcpy.CalculateField_management(TREES, "DL_ENE_1", "([DL_NE] + [DL_ENE])/2", "VB", "")
+
+##Add ENE_2 Directional Field (39)
+arcpy.AddField_management(TREES, "DIR_ENE_2", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate ENE_2 Directional Field (39)
+arcpy.CalculateField_management(TREES, "DIR_ENE_2", "78.75", "VB", "")
+
+##Add ENE_2 Length Field (40)
+arcpy.AddField_management(TREES, "DL_ENE_2", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate ENE_2 Length Field (40)
+arcpy.CalculateField_management(TREES, "DL_ENE_2", "([DL_E] + [DL_ENE])/2", "VB", "")
+
+##ESE
+
+##Add ESE_1 Directional Field (37)
+arcpy.AddField_management(TREES, "DIR_ESE_1", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate ESE_1 Directional Field (37)
+arcpy.CalculateField_management(TREES, "DIR_ESE_1", "101.25", "VB", "")
+
+##Add ESE_1 Length Field (38)
+arcpy.AddField_management(TREES, "DL_ESE_1", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate ESE_1 Length Field (38)
+arcpy.CalculateField_management(TREES, "DL_ESE_1", "([DL_E] + [DL_ESE])/2", "VB", "")
+
+##Add ESE_2 Directional Field (39)
+arcpy.AddField_management(TREES, "DIR_ESE_2", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate ESE_2 Directional Field (39)
+arcpy.CalculateField_management(TREES, "DIR_ESE_2", "121.75", "VB", "")
+
+##Add ESE_2 Length Field (40)
+arcpy.AddField_management(TREES, "DL_ESE_2", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate ESE_2 Length Field (40)
+arcpy.CalculateField_management(TREES, "DL_ESE_2", "([DL_SE] + [DL_ESE])/2", "VB", "")
+
+##SSE
+
+##Add SSE_1 Directional Field (41)
+arcpy.AddField_management(TREES, "DIR_SSE_1", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate SSE_1 Directional Field (41)
+arcpy.CalculateField_management(TREES, "DIR_SSE_1", "146.25", "VB", "")
+
+##Add SSE_1 Length Field (42)
+arcpy.AddField_management(TREES, "DL_SSE_1", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate SSE_1 Length Field (42)
+arcpy.CalculateField_management(TREES, "DL_SSE_1", "([DL_SE] + [DL_SSE])/2", "VB", "")
+
+##Add SSE_2 Directional Field (43)
+arcpy.AddField_management(TREES, "DIR_SSE_2", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate SSE_2 Directional Field (43)
+arcpy.CalculateField_management(TREES, "DIR_SSE_2", "168.75", "VB", "")
+
+##Add SSE_2 Length Field (44)
+arcpy.AddField_management(TREES, "DL_SSE_2", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate SSE_2 Length Field (44)
+arcpy.CalculateField_management(TREES, "DL_SSE_2", "([DL_S] + [DL_SSE])/2", "VB", "")
+
+##SSW
+
+##Add SSW_1 Directional Field (45)
+arcpy.AddField_management(TREES, "DIR_SSW_1", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate SSW_1 Directional Field (45)
+arcpy.CalculateField_management(TREES, "DIR_SSW_1", "213.75", "VB", "")
+
+##Add SSW_1 Length Field (46)
+arcpy.AddField_management(TREES, "DL_SSW_1", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate SSW_1 Length Field (46)
+arcpy.CalculateField_management(TREES, "DL_SSW_1", "([DL_SW] + [DL_SSW])/2", "VB", "")
+
+##Add SSW_2 Directional Field (47)
+arcpy.AddField_management(TREES, "DIR_SSW_2", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate SSW_2 Directional Field (47)
+arcpy.CalculateField_management(TREES, "DIR_SSW_2", "191.25", "VB", "")
+
+##Add SSW_2 Length Field (48)
+arcpy.AddField_management(TREES, "DL_SSW_2", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate SSW_2 Length Field (48)
+arcpy.CalculateField_management(TREES, "DL_SSW_2", "([DL_S] + [DL_SSW])/2", "VB", "")
+
+##WSW
+
+##Add WSW_1 Directional Field (49)
+arcpy.AddField_management(TREES, "DIR_WSW_1", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate WSW_1 Directional Field (49)
+arcpy.CalculateField_management(TREES, "DIR_WSW_1", "258.75", "VB", "")
+
+##Add WSW_1 Length Field (50)
+arcpy.AddField_management(TREES, "DL_WSW_1", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate WSW_1 Length Field (50)
+arcpy.CalculateField_management(TREES, "DL_WSW_1", "([DL_W] + [DL_WSW])/2", "VB", "")
+
+##Add WSW_2 Directional Field (51)
+arcpy.AddField_management(TREES, "DIR_WSW_2", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate WSW_2 Directional Field (51)
+arcpy.CalculateField_management(TREES, "DIR_WSW_2", "236.25", "VB", "")
+
+##Add WSW_2 Length Field (52)
+arcpy.AddField_management(TREES, "DL_WSW_2", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate WSW_2 Length Field (52)
+arcpy.CalculateField_management(TREES, "DL_WSW_2", "([DL_SW] + [DL_WSW])/2", "VB", "")
+
+##WNW
+
+##Add WNW_1 Directional Field (49)
+arcpy.AddField_management(TREES, "DIR_WNW_1", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate WNW_1 Directional Field (49)
+arcpy.CalculateField_management(TREES, "DIR_WNW_1", "303.75", "VB", "")
+
+##Add WNW_1 Length Field (50)
+arcpy.AddField_management(TREES, "DL_WNW_1", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate WNW_1 Length Field (50)
+arcpy.CalculateField_management(TREES, "DL_WNW_1", "([DL_NW] + [DL_WNW])/2", "VB", "")
+
+##Add WNW_2 Directional Field (51)
+arcpy.AddField_management(TREES, "DIR_WNW_2", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate WNW_2 Directional Field (51)
+arcpy.CalculateField_management(TREES, "DIR_WNW_2", "281.25", "VB", "")
+
+##Add WNW_2 Length Field (52)
+arcpy.AddField_management(TREES, "DL_WNW_2", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate WNW_2 Length Field (52)
+arcpy.CalculateField_management(TREES, "DL_WNW_2", "([DL_W] + [DL_WNW])/2", "VB", "")
+
+##NNW
+
+##Add NNW_1 Directional Field (53)
+arcpy.AddField_management(TREES, "DIR_NNW_1", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate NNW_1 Directional Field (53)
+arcpy.CalculateField_management(TREES, "DIR_NNW_1", "348.75", "VB", "")
+
+##Add NNW_1 Length Field (54)
+arcpy.AddField_management(TREES, "DL_NNW_1", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate NNW_1 Length Field (54)
+arcpy.CalculateField_management(TREES, "DL_NNW_1", "([DL_N] + [DL_NNW])/2", "VB", "")
+
+##Add NNW_2 Directional Field (55)
+arcpy.AddField_management(TREES, "DIR_NNW_2", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate NNW_2 Directional Field (55)
+arcpy.CalculateField_management(TREES, "DIR_NNW_2", "326.25", "VB", "")
+
+##Add NNW_2 Length Field (56)
+arcpy.AddField_management(TREES, "DL_NNW_2", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+##Calculate NNW_2 Length Field (56)
+arcpy.CalculateField_management(TREES, "DL_NNW_2", "([DL_NW] + [DL_NNW])/2", "VB", "")
+
+##Add X/Y Point Values
+arcpy.AddXY_management(TREES)
+
+
+NW_Output = "Z:\\GIS\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NW_Output"
+
+SW_Output = "Z:\\GIS\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SW_Output"
+
+SE_Output = "Z:\\GIS\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SE_Output"
+
+NE_Output = "Z:\\GIS\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NE_Output"
+
+N_Output = "Z:\\GIS\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\N_Output"
+
+E_Output = "Z:\\GIS\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\E_Output"
+
+S_Output = "Z:\\GIS\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\S_Output"
+
+W_Output = "Z:\\GIS\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\W_Output"
+
+Spokes_Merge = "Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge"
+
+
+
+# Process: Bearing Distance To Line (8)
+arcpy.BearingDistanceToLine_management(TREES, NW_Output, "POINT_X", "POINT_Y", "DL_NW", "9003", "DIR_NW", "9102", "0", "", "")
+
+
+
+# Process: Bearing Distance To Line (6)
+arcpy.BearingDistanceToLine_management(TREES, SW_Output, "POINT_X", "POINT_Y", "DL_SW", "9003", "DIR_SW", "9102", "0", "", "")
+
+
+
+# Process: Bearing Distance To Line (4)
+arcpy.BearingDistanceToLine_management(TREES, SE_Output, "POINT_X", "POINT_Y", "DL_SE", "9003", "DIR_SE", "9102", "0", "", "")
+
+
+
+# Process: Bearing Distance To Line (2)
+arcpy.BearingDistanceToLine_management(TREES, NE_Output, "POINT_X", "POINT_Y", "DL_NE", "9003", "DIR_NE", "9102", "0", "", "")
+
+
+
+# Process: Bearing Distance To Line
+arcpy.BearingDistanceToLine_management(TREES, N_Output, "POINT_X", "POINT_Y", "DL_N", "9003", "DIR_N", "9102", "0", "", "")
+
+
+
+# Process: Bearing Distance To Line (3)
+arcpy.BearingDistanceToLine_management(TREES, E_Output, "POINT_X", "POINT_Y", "DL_E", "9003", "DIR_E", "9102", "0", "", "")
+
+
+
+# Process: Bearing Distance To Line (5)
+arcpy.BearingDistanceToLine_management(TREES, S_Output, "POINT_X", "POINT_Y", "DL_S", "9003", "DIR_S", "9102", "0", "", "")
+
+
+
+# Process: Bearing Distance To Line (7)
+arcpy.BearingDistanceToLine_management(TREES, W_Output, "POINT_X", "POINT_Y", "DL_W", "9003", "DIR_W", "9102", "0", "", "")
+
+
+
+# Process: Merge
+arcpy.Merge_management("Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NW_Output;Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SW_Output;Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SE_Output;Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NE_Output;Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\N_Output;Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\E_Output;Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\S_Output;Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\W_Output", Spokes_Merge, "POINT_X \"POINT_X\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NW_Output,POINT_X,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SW_Output,POINT_X,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SE_Output,POINT_X,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NE_Output,POINT_X,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\N_Output,POINT_X,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\E_Output,POINT_X,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\S_Output,POINT_X,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\W_Output,POINT_X,-1,-1;POINT_Y \"POINT_Y\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NW_Output,POINT_Y,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SW_Output,POINT_Y,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SE_Output,POINT_Y,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NE_Output,POINT_Y,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\N_Output,POINT_Y,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\E_Output,POINT_Y,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\S_Output,POINT_Y,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\W_Output,POINT_Y,-1,-1;DL_NW \"DL_NW\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NW_Output,DL_NW,-1,-1;DIR_NW \"DIR_NW\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NW_Output,DIR_NW,-1,-1;DL_SW \"DL_SW\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SW_Output,DL_SW,-1,-1;DIR_SW \"DIR_SW\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SW_Output,DIR_SW,-1,-1;DL_SE \"DL_SE\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SE_Output,DL_SE,-1,-1;DIR_SE \"DIR_SE\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SE_Output,DIR_SE,-1,-1;DL_NE \"DL_NE\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NE_Output,DL_NE,-1,-1;DIR_NE \"DIR_NE\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NE_Output,DIR_NE,-1,-1;DL_N \"DL_N\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\N_Output,DL_N,-1,-1;DIR_N \"DIR_N\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\N_Output,DIR_N,-1,-1;DL_E \"DL_E\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\E_Output,DL_E,-1,-1;DIR_E \"DIR_E\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\E_Output,DIR_E,-1,-1;DL_S \"DL_S\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\S_Output,DL_S,-1,-1;DIR_S \"DIR_S\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\S_Output,DIR_S,-1,-1;DL_W \"DL_W\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\W_Output,DL_W,-1,-1;DIR_W \"DIR_W\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\W_Output,DIR_W,-1,-1")
+
+
+
+NNE = "Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NNE"
+ENE = "Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\ENE"
+ESE = "Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\ESE"
+SSE = "Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SSE"
+SSW = "Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SSW"
+WSW = "Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\WSW"
+WNW = "Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\WNW"
+NNW = "Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NNW"
+Spokes_Merge2 = "Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge2"
+
+# Process: Bearing Distance To Line (8)
+arcpy.BearingDistanceToLine_management(TREES, NNE, "POINT_X", "POINT_Y", "DL_NNE", "9003", "DIR_NNE", "9102", "0", "", "")
+
+# Process: Bearing Distance To Line (6)
+arcpy.BearingDistanceToLine_management(TREES, ENE, "POINT_X", "POINT_Y", "DL_ENE", "9003", "DIR_ENE", "9102", "0", "", "")
+
+# Process: Bearing Distance To Line (4)
+arcpy.BearingDistanceToLine_management(TREES, ESE, "POINT_X", "POINT_Y", "DL_ESE", "9003", "DIR_ESE", "9102", "0", "", "")
+
+# Process: Bearing Distance To Line (2)
+arcpy.BearingDistanceToLine_management(TREES, SSE, "POINT_X", "POINT_Y", "DL_SSE", "9003", "DIR_SSE", "9102", "0", "", "")
+
+# Process: Bearing Distance To Line
+arcpy.BearingDistanceToLine_management(TREES, SSW, "POINT_X", "POINT_Y", "DL_SSW", "9003", "DIR_SSW", "9102", "0", "", "")
+
+# Process: Bearing Distance To Line (3)
+arcpy.BearingDistanceToLine_management(TREES, WSW, "POINT_X", "POINT_Y", "DL_WSW", "9003", "DIR_WSW", "9102", "0", "", "")
+
+# Process: Bearing Distance To Line (5)
+arcpy.BearingDistanceToLine_management(TREES, WNW, "POINT_X", "POINT_Y", "DL_WNW", "9003", "DIR_WNW", "9102", "0", "", "")
+
+# Process: Bearing Distance To Line (7)
+arcpy.BearingDistanceToLine_management(TREES, NNW, "POINT_X", "POINT_Y", "DL_NNW", "9003", "DIR_NNW", "9102", "0", "", "")
+
+# Process: Merge
+arcpy.Merge_management("Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NNE;Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\ENE;Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\ESE;Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SSE;Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SSW;Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\WSW;Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\WNW;Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NNW", Spokes_Merge2, "POINT_X \"POINT_X\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NNE,POINT_X,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\ENE,POINT_X,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\ESE,POINT_X,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SSE,POINT_X,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SSW,POINT_X,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\WSW,POINT_X,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\WNW,POINT_X,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NNW,POINT_X,-1,-1;POINT_Y \"POINT_Y\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NNE,POINT_Y,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\ENE,POINT_Y,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\ESE,POINT_Y,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SSE,POINT_Y,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SSW,POINT_Y,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\WSW,POINT_Y,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\WNW,POINT_Y,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NNW,POINT_Y,-1,-1;DL_NNE \"DL_NNE\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NNE,DL_NNE,-1,-1;DIR_NNE \"DIR_NNE\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NNE,DIR_NNE,-1,-1;DL_ENE \"DL_ENE\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\ENE,DL_ENE,-1,-1;DIR_ENE \"DIR_ENE\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\ENE,DIR_ENE,-1,-1;DL_ESE \"DL_ESE\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\ESE,DL_ESE,-1,-1;DIR_ESE \"DIR_ESE\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\ESE,DIR_ESE,-1,-1;DL_SSE \"DL_SSE\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SSE,DL_SSE,-1,-1;DIR_SSE \"DIR_SSE\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SSE,DIR_SSE,-1,-1;DL_SSW \"DL_SSW\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SSW,DL_SSW,-1,-1;DIR_SSW \"DIR_SSW\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SSW,DIR_SSW,-1,-1;DL_WSW \"DL_WSW\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\WSW,DL_WSW,-1,-1;DIR_WSW \"DIR_WSW\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\WSW,DIR_WSW,-1,-1;DL_WNW \"DL_WNW\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\WNW,DL_WNW,-1,-1;DIR_WNW \"DIR_WNW\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\WNW,DIR_WNW,-1,-1;DL_NNW \"DL_NNW\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NNW,DL_NNW,-1,-1;DIR_NNW \"DIR_NNW\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NNW,DIR_NNW,-1,-1")
+
+
+
+NNE_1 = "Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NNE_1"
+NNE_2 = "Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NNE_2"
+ENE_1 = "Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\ENE_1"
+ENE_2 = "Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\ENE_2"
+ESE_1 = "Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\ESE_1"
+ESE_2 = "Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\ESE_2"
+SSE_1 = "Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SSE_1"
+SSE_2 = "Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SSE_2"
+SSW_1 = "Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SSW_1"
+SSW_2 = "Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SSW_2"
+WSW_1 = "Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\WSW_1"
+WSW_2 = "Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\WSW_2"
+WNW_1 = "Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\WNW_1"
+WNW_2 = "Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\WNW_2"
+NNW_1 = "Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NNW_1"
+NNW_2 = "Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NNW_2"
+Spokes_Merged = "Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged"
+
+# Process: Bearing Distance To Line (8)
+arcpy.BearingDistanceToLine_management(TREES, NNE_1, "POINT_X", "POINT_Y", "DL_NNE_1", "9003", "DIR_NNE_1", "9102", "0", "", "")
+
+# Process: Bearing Distance To Line (6)
+arcpy.BearingDistanceToLine_management(TREES, NNE_2, "POINT_X", "POINT_Y", "DL_NNE_2", "9003", "DIR_NNE_2", "9102", "0", "", "")
+
+# Process: Bearing Distance To Line (4)
+arcpy.BearingDistanceToLine_management(TREES, ENE_1, "POINT_X", "POINT_Y", "DL_ENE_1", "9003", "DIR_ENE_1", "9102", "0", "", "")
+
+# Process: Bearing Distance To Line (2)
+arcpy.BearingDistanceToLine_management(TREES, ENE_2, "POINT_X", "POINT_Y", "DL_ENE_2", "9003", "DIR_ENE_2", "9102", "0", "", "")
+
+# Process: Bearing Distance To Line
+arcpy.BearingDistanceToLine_management(TREES, ESE_1, "POINT_X", "POINT_Y", "DL_ESE_1", "9003", "DIR_ESE_1", "9102", "0", "", "")
+
+# Process: Bearing Distance To Line (3)
+arcpy.BearingDistanceToLine_management(TREES, ESE_2, "POINT_X", "POINT_Y", "DL_ESE_2", "9003", "DIR_ESE_2", "9102", "0", "", "")
+
+# Process: Bearing Distance To Line (5)
+arcpy.BearingDistanceToLine_management(TREES, SSE_1, "POINT_X", "POINT_Y", "DL_SSE_1", "9003", "DIR_SSE_1", "9102", "0", "", "")
+
+# Process: Bearing Distance To Line (7)
+arcpy.BearingDistanceToLine_management(TREES, SSE_2, "POINT_X", "POINT_Y", "DL_SSE_2", "9003", "DIR_SSE_2", "9102", "0", "", "")
+
+# Process: Bearing Distance To Line (9)
+arcpy.BearingDistanceToLine_management(TREES, SSW_1, "POINT_X", "POINT_Y", "DL_SSW_1", "9003", "DIR_SSW_1", "9102", "0", "", "")
+
+# Process: Bearing Distance To Line (10)
+arcpy.BearingDistanceToLine_management(TREES, SSW_2, "POINT_X", "POINT_Y", "DL_SSW_2", "9003", "DIR_SSW_2", "9102", "0", "", "")
+
+# Process: Bearing Distance To Line (11)
+arcpy.BearingDistanceToLine_management(TREES, WSW_1, "POINT_X", "POINT_Y", "DL_WSW_1", "9003", "DIR_WSW_1", "9102", "0", "", "")
+
+# Process: Bearing Distance To Line (12)
+arcpy.BearingDistanceToLine_management(TREES, WSW_2, "POINT_X", "POINT_Y", "DL_WSW_2", "9003", "DIR_WSW_2", "9102", "0", "", "")
+
+# Process: Bearing Distance To Line (13)
+arcpy.BearingDistanceToLine_management(TREES, WNW_1, "POINT_X", "POINT_Y", "DL_WNW_1", "9003", "DIR_WNW_1", "9102", "0", "", "")
+
+# Process: Bearing Distance To Line (14)
+arcpy.BearingDistanceToLine_management(TREES, WNW_2, "POINT_X", "POINT_Y", "DL_WNW_2", "9003", "DIR_WNW_2", "9102", "0", "", "")
+
+# Process: Bearing Distance To Line (15)
+arcpy.BearingDistanceToLine_management(TREES, NNW_1, "POINT_X", "POINT_Y", "DL_NNW_1", "9003", "DIR_NNW_1", "9102", "0", "", "")
+
+# Process: Bearing Distance To Line (16)
+arcpy.BearingDistanceToLine_management(TREES, NNW_2, "POINT_X", "POINT_Y", "DL_NNW_2", "9003", "DIR_NNW_2", "9102", "0", "", "")
+
+# Process: Merge
+arcpy.Merge_management("Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NNE_1;Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NNE_2;Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\ENE_1;Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\ENE_2;Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\ESE_1;Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\ESE_2;Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SSE_1;Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SSE_2;Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SSW_1;Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SSW_2;Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\WSW_1;Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\WSW_2;Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\WNW_1;Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\WNW_2;Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NNW_1;Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NNW_2", Spokes_Merged, "POINT_X \"POINT_X\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NNE_1,POINT_X,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NNE_2,POINT_X,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\ENE_1,POINT_X,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\ENE_2,POINT_X,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\ESE_1,POINT_X,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\ESE_2,POINT_X,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SSE_1,POINT_X,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SSE_2,POINT_X,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SSW_1,POINT_X,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SSW_2,POINT_X,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\WSW_1,POINT_X,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\WSW_2,POINT_X,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\WNW_1,POINT_X,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\WNW_2,POINT_X,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NNW_1,POINT_X,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NNW_2,POINT_X,-1,-1;POINT_Y \"POINT_Y\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NNE_1,POINT_Y,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NNE_2,POINT_Y,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\ENE_1,POINT_Y,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\ENE_2,POINT_Y,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\ESE_1,POINT_Y,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\ESE_2,POINT_Y,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SSE_1,POINT_Y,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SSE_2,POINT_Y,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SSW_1,POINT_Y,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SSW_2,POINT_Y,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\WSW_1,POINT_Y,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\WSW_2,POINT_Y,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\WNW_1,POINT_Y,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\WNW_2,POINT_Y,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NNW_1,POINT_Y,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NNW_2,POINT_Y,-1,-1;DL_NNE_1 \"DL_NNE_1\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NNE_1,DL_NNE_1,-1,-1;DIR_NNE_1 \"DIR_NNE_1\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NNE_1,DIR_NNE_1,-1,-1;DL_NNE_2 \"DL_NNE_2\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NNE_2,DL_NNE_2,-1,-1;DIR_NNE_2 \"DIR_NNE_2\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NNE_2,DIR_NNE_2,-1,-1;DL_ENE_1 \"DL_ENE_1\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\ENE_1,DL_ENE_1,-1,-1;DIR_ENE_1 \"DIR_ENE_1\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\ENE_1,DIR_ENE_1,-1,-1;DL_ENE_2 \"DL_ENE_2\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\ENE_2,DL_ENE_2,-1,-1;DIR_ENE_2 \"DIR_ENE_2\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\ENE_2,DIR_ENE_2,-1,-1;DL_ESE_1 \"DL_ESE_1\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\ESE_1,DL_ESE_1,-1,-1;DIR_ESE_1 \"DIR_ESE_1\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\ESE_1,DIR_ESE_1,-1,-1;DL_ESE_2 \"DL_ESE_2\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\ESE_2,DL_ESE_2,-1,-1;DIR_ESE_2 \"DIR_ESE_2\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\ESE_2,DIR_ESE_2,-1,-1;DL_SSE_1 \"DL_SSE_1\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SSE_1,DL_SSE_1,-1,-1;DIR_SSE_1 \"DIR_SSE_1\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SSE_1,DIR_SSE_1,-1,-1;DL_SSE_2 \"DL_SSE_2\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SSE_2,DL_SSE_2,-1,-1;DIR_SSE_2 \"DIR_SSE_2\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SSE_2,DIR_SSE_2,-1,-1;DL_SSW_1 \"DL_SSW_1\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SSW_1,DL_SSW_1,-1,-1;DIR_SSW_1 \"DIR_SSW_1\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SSW_1,DIR_SSW_1,-1,-1;DL_SSW_2 \"DL_SSW_2\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SSW_2,DL_SSW_2,-1,-1;DIR_SSW_2 \"DIR_SSW_2\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\SSW_2,DIR_SSW_2,-1,-1;DL_WSW_1 \"DL_WSW_1\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\WSW_1,DL_WSW_1,-1,-1;DIR_WSW_1 \"DIR_WSW_1\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\WSW_1,DIR_WSW_1,-1,-1;DL_WSW_2 \"DL_WSW_2\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\WSW_2,DL_WSW_2,-1,-1;DIR_WSW_2 \"DIR_WSW_2\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\WSW_2,DIR_WSW_2,-1,-1;DL_WNW_1 \"DL_WNW_1\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\WNW_1,DL_WNW_1,-1,-1;DIR_WNW_1 \"DIR_WNW_1\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\WNW_1,DIR_WNW_1,-1,-1;DL_WNW_2 \"DL_WNW_2\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\WNW_2,DL_WNW_2,-1,-1;DIR_WNW_2 \"DIR_WNW_2\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\WNW_2,DIR_WNW_2,-1,-1;DL_NNW_1 \"DL_NNW_1\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NNW_1,DL_NNW_1,-1,-1;DIR_NNW_1 \"DIR_NNW_1\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NNW_1,DIR_NNW_1,-1,-1;DL_NNW_2 \"DL_NNW_2\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NNW_2,DL_NNW_2,-1,-1;DIR_NNW_2 \"DIR_NNW_2\" true true false 0 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\NNW_2,DIR_NNW_2,-1,-1")
+
+
+# Local variables:
+Spokes_Merge_shp = "D:\\_ENVICOM\\HILTON_TREES_Set5\\Spokes_Merge.shp"
+Spokes_Merge2_shp = "D:\\_ENVICOM\\HILTON_TREES_Set5\\Spokes_Merge2.shp"
+Spokes_Merged = "D:\\_ENVICOM\\HILTON_TREES_Set5\\Spokes.gdb\\Spokes_Merged"
+Spokes_Merge = "Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge"
+Spokes_Merge2 = "Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge2"
+Spokes_Merged__3_ = "Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged"
+ALL_Spokes = "Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\ALL_Spokes"
+
+# Process: Merge
+arcpy.Merge_management("Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge;Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge2;Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged", ALL_Spokes, "POINT_X \"POINT_X\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge,POINT_X,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge2,POINT_X,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,POINT_X,-1,-1;POINT_Y \"POINT_Y\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge,POINT_Y,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge2,POINT_Y,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,POINT_Y,-1,-1;Shape_Length \"Shape_Length\" false true true 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge,Shape_Length,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge2,Shape_Length,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,Shape_Length,-1,-1;DIR_NW \"DIR_NW\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge,DIR_NW,-1,-1;DL_NW \"DL_NW\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge,DL_NW,-1,-1;DIR_SW \"DIR_SW\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge,DIR_SW,-1,-1;DL_SW \"DL_SW\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge,DL_SW,-1,-1;DIR_SE \"DIR_SE\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge,DIR_SE,-1,-1;DL_SE \"DL_SE\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge,DL_SE,-1,-1;DIR_NE \"DIR_NE\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge,DIR_NE,-1,-1;DL_NE \"DL_NE\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge,DL_NE,-1,-1;DIR_N \"DIR_N\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge,DIR_N,-1,-1;DL_N \"DL_N\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge,DL_N,-1,-1;DIR_E \"DIR_E\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge,DIR_E,-1,-1;DL_E \"DL_E\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge,DL_E,-1,-1;DIR_S \"DIR_S\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge,DIR_S,-1,-1;DL_S \"DL_S\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge,DL_S,-1,-1;DIR_W \"DIR_W\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge,DIR_W,-1,-1;DL_W \"DL_W\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge,DL_W,-1,-1;DIR_NNE \"DIR_NNE\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge2,DIR_NNE,-1,-1;DL_NNE \"DL_NNE\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge2,DL_NNE,-1,-1;DIR_ENE \"DIR_ENE\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge2,DIR_ENE,-1,-1;DL_ENE \"DL_ENE\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge2,DL_ENE,-1,-1;DIR_ESE \"DIR_ESE\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge2,DIR_ESE,-1,-1;DL_ESE \"DL_ESE\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge2,DL_ESE,-1,-1;DIR_SSE \"DIR_SSE\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge2,DIR_SSE,-1,-1;DL_SSE \"DL_SSE\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge2,DL_SSE,-1,-1;DIR_SSW \"DIR_SSW\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge2,DIR_SSW,-1,-1;DL_SSW \"DL_SSW\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge2,DL_SSW,-1,-1;DIR_WSW \"DIR_WSW\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge2,DIR_WSW,-1,-1;DL_WSW \"DL_WSW\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge2,DL_WSW,-1,-1;DIR_WNW \"DIR_WNW\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge2,DIR_WNW,-1,-1;DL_WNW \"DL_WNW\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge2,DL_WNW,-1,-1;DIR_NNW \"DIR_NNW\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge2,DIR_NNW,-1,-1;DL_NNW \"DL_NNW\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge2,DL_NNW,-1,-1;DIR_NNE_1 \"DIR_NNE_1\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DIR_NNE_1,-1,-1;DL_NNE_1 \"DL_NNE_1\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DL_NNE_1,-1,-1;DIR_NNE_2 \"DIR_NNE_2\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DIR_NNE_2,-1,-1;DL_NNE_2 \"DL_NNE_2\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DL_NNE_2,-1,-1;DIR_ENE_1 \"DIR_ENE_1\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DIR_ENE_1,-1,-1;DL_ENE_1 \"DL_ENE_1\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DL_ENE_1,-1,-1;DIR_ENE_2 \"DIR_ENE_2\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DIR_ENE_2,-1,-1;DL_ENE_2 \"DL_ENE_2\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DL_ENE_2,-1,-1;DIR_ESE_1 \"DIR_ESE_1\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DIR_ESE_1,-1,-1;DL_ESE_1 \"DL_ESE_1\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DL_ESE_1,-1,-1;DIR_ESE_2 \"DIR_ESE_2\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DIR_ESE_2,-1,-1;DL_ESE_2 \"DL_ESE_2\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DL_ESE_2,-1,-1;DIR_SSE_1 \"DIR_SSE_1\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DIR_SSE_1,-1,-1;DL_SSE_1 \"DL_SSE_1\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DL_SSE_1,-1,-1;DIR_SSE_2 \"DIR_SSE_2\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DIR_SSE_2,-1,-1;DL_SSE_2 \"DL_SSE_2\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DL_SSE_2,-1,-1;DIR_SSW_1 \"DIR_SSW_1\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DIR_SSW_1,-1,-1;DL_SSW_1 \"DL_SSW_1\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DL_SSW_1,-1,-1;DIR_SSW_2 \"DIR_SSW_2\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DIR_SSW_2,-1,-1;DL_SSW_2 \"DL_SSW_2\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DL_SSW_2,-1,-1;DIR_WSW_1 \"DIR_WSW_1\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DIR_WSW_1,-1,-1;DL_WSW_1 \"DL_WSW_1\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DL_WSW_1,-1,-1;DIR_WSW_2 \"DIR_WSW_2\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DIR_WSW_2,-1,-1;DL_WSW_2 \"DL_WSW_2\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DL_WSW_2,-1,-1;DIR_WNW_1 \"DIR_WNW_1\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DIR_WNW_1,-1,-1;DL_WNW_1 \"DL_WNW_1\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DL_WNW_1,-1,-1;DIR_WNW_2 \"DIR_WNW_2\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DIR_WNW_2,-1,-1;DL_WNW_2 \"DL_WNW_2\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DL_WNW_2,-1,-1;DIR_NNW_1 \"DIR_NNW_1\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DIR_NNW_1,-1,-1;DL_NNW_1 \"DL_NNW_1\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DL_NNW_1,-1,-1;DIR_NNW_2 \"DIR_NNW_2\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DIR_NNW_2,-1,-1;DL_NNW_2 \"DL_NNW_2\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DL_NNW_2,-1,-1")
+
+
+
+
+
+
+# Local variables:
+
+Spokes_Merge = "Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge"
+Spokes_Merge2 = "Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge2"
+Spokes_Merged3_ = "Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged"
+ALL_Spokes = "Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\ALL_Spokes"
+
+# Process: Merge
+arcpy.Merge_management("Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge;Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge2;Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged", ALL_Spokes, "POINT_X \"POINT_X\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge,POINT_X,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge2,POINT_X,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,POINT_X,-1,-1;POINT_Y \"POINT_Y\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge,POINT_Y,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge2,POINT_Y,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,POINT_Y,-1,-1;Shape_Length \"Shape_Length\" false true true 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge,Shape_Length,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge2,Shape_Length,-1,-1,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,Shape_Length,-1,-1;DIR_NW \"DIR_NW\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge,DIR_NW,-1,-1;DL_NW \"DL_NW\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge,DL_NW,-1,-1;DIR_SW \"DIR_SW\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge,DIR_SW,-1,-1;DL_SW \"DL_SW\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge,DL_SW,-1,-1;DIR_SE \"DIR_SE\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge,DIR_SE,-1,-1;DL_SE \"DL_SE\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge,DL_SE,-1,-1;DIR_NE \"DIR_NE\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge,DIR_NE,-1,-1;DL_NE \"DL_NE\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge,DL_NE,-1,-1;DIR_N \"DIR_N\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge,DIR_N,-1,-1;DL_N \"DL_N\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge,DL_N,-1,-1;DIR_E \"DIR_E\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge,DIR_E,-1,-1;DL_E \"DL_E\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge,DL_E,-1,-1;DIR_S \"DIR_S\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge,DIR_S,-1,-1;DL_S \"DL_S\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge,DL_S,-1,-1;DIR_W \"DIR_W\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge,DIR_W,-1,-1;DL_W \"DL_W\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge,DL_W,-1,-1;DIR_NNE \"DIR_NNE\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge2,DIR_NNE,-1,-1;DL_NNE \"DL_NNE\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge2,DL_NNE,-1,-1;DIR_ENE \"DIR_ENE\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge2,DIR_ENE,-1,-1;DL_ENE \"DL_ENE\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge2,DL_ENE,-1,-1;DIR_ESE \"DIR_ESE\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge2,DIR_ESE,-1,-1;DL_ESE \"DL_ESE\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge2,DL_ESE,-1,-1;DIR_SSE \"DIR_SSE\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge2,DIR_SSE,-1,-1;DL_SSE \"DL_SSE\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge2,DL_SSE,-1,-1;DIR_SSW \"DIR_SSW\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge2,DIR_SSW,-1,-1;DL_SSW \"DL_SSW\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge2,DL_SSW,-1,-1;DIR_WSW \"DIR_WSW\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge2,DIR_WSW,-1,-1;DL_WSW \"DL_WSW\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge2,DL_WSW,-1,-1;DIR_WNW \"DIR_WNW\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge2,DIR_WNW,-1,-1;DL_WNW \"DL_WNW\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge2,DL_WNW,-1,-1;DIR_NNW \"DIR_NNW\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge2,DIR_NNW,-1,-1;DL_NNW \"DL_NNW\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merge2,DL_NNW,-1,-1;DIR_NNE_1 \"DIR_NNE_1\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DIR_NNE_1,-1,-1;DL_NNE_1 \"DL_NNE_1\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DL_NNE_1,-1,-1;DIR_NNE_2 \"DIR_NNE_2\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DIR_NNE_2,-1,-1;DL_NNE_2 \"DL_NNE_2\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DL_NNE_2,-1,-1;DIR_ENE_1 \"DIR_ENE_1\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DIR_ENE_1,-1,-1;DL_ENE_1 \"DL_ENE_1\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DL_ENE_1,-1,-1;DIR_ENE_2 \"DIR_ENE_2\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DIR_ENE_2,-1,-1;DL_ENE_2 \"DL_ENE_2\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DL_ENE_2,-1,-1;DIR_ESE_1 \"DIR_ESE_1\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DIR_ESE_1,-1,-1;DL_ESE_1 \"DL_ESE_1\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DL_ESE_1,-1,-1;DIR_ESE_2 \"DIR_ESE_2\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DIR_ESE_2,-1,-1;DL_ESE_2 \"DL_ESE_2\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DL_ESE_2,-1,-1;DIR_SSE_1 \"DIR_SSE_1\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DIR_SSE_1,-1,-1;DL_SSE_1 \"DL_SSE_1\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DL_SSE_1,-1,-1;DIR_SSE_2 \"DIR_SSE_2\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DIR_SSE_2,-1,-1;DL_SSE_2 \"DL_SSE_2\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DL_SSE_2,-1,-1;DIR_SSW_1 \"DIR_SSW_1\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DIR_SSW_1,-1,-1;DL_SSW_1 \"DL_SSW_1\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DL_SSW_1,-1,-1;DIR_SSW_2 \"DIR_SSW_2\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DIR_SSW_2,-1,-1;DL_SSW_2 \"DL_SSW_2\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DL_SSW_2,-1,-1;DIR_WSW_1 \"DIR_WSW_1\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DIR_WSW_1,-1,-1;DL_WSW_1 \"DL_WSW_1\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DL_WSW_1,-1,-1;DIR_WSW_2 \"DIR_WSW_2\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DIR_WSW_2,-1,-1;DL_WSW_2 \"DL_WSW_2\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DL_WSW_2,-1,-1;DIR_WNW_1 \"DIR_WNW_1\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DIR_WNW_1,-1,-1;DL_WNW_1 \"DL_WNW_1\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DL_WNW_1,-1,-1;DIR_WNW_2 \"DIR_WNW_2\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DIR_WNW_2,-1,-1;DL_WNW_2 \"DL_WNW_2\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DL_WNW_2,-1,-1;DIR_NNW_1 \"DIR_NNW_1\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DIR_NNW_1,-1,-1;DL_NNW_1 \"DL_NNW_1\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DL_NNW_1,-1,-1;DIR_NNW_2 \"DIR_NNW_2\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DIR_NNW_2,-1,-1;DL_NNW_2 \"DL_NNW_2\" true false false 8 Double 0 0 ,First,#,Z:\\GIS\\Models\\Tree_Canopies\\_TREE_MODEL_MASTER_2021_USE\\STEP_3_SpokesOutput\\Spokes.gdb\\Spokes_Merged,DL_NNW_2,-1,-1")
+
+
+
